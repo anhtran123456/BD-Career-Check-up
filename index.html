@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="description" content="BD Career Check-up by Upzi – bài tự đánh giá tố chất, phong cách làm Business Development, mức sẵn sàng và cách đánh giá công việc BD.">
+<meta name="description" content="BD Career Check-up by Upzi – bài tự đánh giá nhanh về tố chất, kỹ năng và điều bạn coi trọng khi bắt đầu nghề Business Development.">
 <meta property="og:title" content="BD Career Check-up by Upzi">
-<meta property="og:description" content="Bạn đã sẵn sàng cho nghề Business Development chưa? Làm bài check-up 7 phút cùng Upzi.">
+<meta property="og:description" content="Bạn đã sẵn sàng cho nghề Business Development chưa? Làm bài check-up 5 phút cùng Upzi.">
 <link rel="icon" type="image/png" href="gau.png">
 <style>
 :root{color-scheme:light;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -198,6 +198,48 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--violet);outline-off
 .sources a{color:var(--violet)}
 .persona .roles{font-size:14px;background:rgba(255,255,255,.12);border-radius:12px;padding:10px 12px}
 .persona .roles b{color:var(--lime)}
+
+/* v3: quotes, picks, fine print */
+.persona .fine{font-size:12px;opacity:.75}
+.gaplist{display:grid;gap:8px}
+.quotes{display:grid;gap:10px}
+blockquote{margin:0;padding:12px 16px;border-left:4px solid var(--violet);background:var(--bg);border-radius:0 12px 12px 0;font-size:15px;line-height:1.55}
+.picks{display:grid;gap:8px}
+.pick{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:12px 16px;border-radius:14px;background:var(--chip)}
+.pick span{font-weight:700;min-width:0}
+.pick b{font-family:var(--font-display);font-size:22px;color:var(--violet);font-variant-numeric:tabular-nums}
+.check li span{min-width:0}
+.savebox .row .btn{flex:0 1 auto}
+.pdfmsg{font-size:14px;font-weight:700;color:var(--muted);margin:0}
+/* Offscreen A4 sheet used only to render the PDF: always light, fixed print colors */
+.pdf-sheet{position:fixed;left:-10000px;top:0;width:760px;background:#fff;color:#1D1530;font-family:var(--font-body);font-size:15px;line-height:1.55}
+.pdf-sheet .blk{padding:12px 28px;background:#fff}
+.pdf-sheet h1,.pdf-sheet h2,.pdf-sheet h3{font-family:var(--font-display);margin:0;color:#1D1530}
+.pdf-sheet .ph{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;border-bottom:2px solid #E3DCF1;padding-bottom:14px}
+.pdf-sheet .ph img{height:42px;width:auto}
+.pdf-sheet .ph small{display:block;color:#635A78;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;text-align:right}
+.pdf-sheet .title{font-size:30px;font-weight:800;margin-top:14px}
+.pdf-sheet .lbl{font-size:12px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#9345FF;margin-bottom:6px}
+.pdf-sheet .card{background:#551CAF;color:#fff;border-radius:18px;padding:22px 24px;display:grid;grid-template-columns:1fr 120px;gap:16px;align-items:center}
+.pdf-sheet .card .lbl{color:#E0E722}
+.pdf-sheet .card h2{color:#fff;font-size:34px;font-weight:800;line-height:1.05}
+.pdf-sheet .card .en{color:#E0E722;font-weight:700;margin:6px 0}
+.pdf-sheet .card p{margin:6px 0 0}
+.pdf-sheet .card .fine{font-size:11px;opacity:.8}
+.pdf-sheet .disc{width:120px;height:120px;border-radius:50%;background:#E0E722;display:grid;place-items:center;overflow:hidden}
+.pdf-sheet .disc img{width:86%;height:auto}
+.pdf-sheet h3{font-size:19px;font-weight:700;margin:0 0 8px}
+.pdf-sheet .item{background:#F6F3FC;border:1px solid #E3DCF1;border-radius:12px;padding:10px 14px;margin:6px 0}
+.pdf-sheet .item small{display:block;color:#635A78}
+.pdf-sheet .pick{display:flex;justify-content:space-between;gap:12px;align-items:center;background:#EFE8FB;border-radius:12px;padding:10px 14px;margin:6px 0;font-weight:700}
+.pdf-sheet .pick b{font-family:var(--font-display);font-size:20px;color:#9345FF}
+.pdf-sheet blockquote{margin:8px 0;padding:10px 14px;border-left:4px solid #9345FF;background:#F6F3FC;border-radius:0 10px 10px 0;font-size:14px}
+.pdf-sheet .src{font-size:11px;color:#635A78;margin-top:4px}
+.pdf-sheet .cta{background:#E0E722;border-radius:18px;padding:18px 22px}
+.pdf-sheet .cta b{font-family:var(--font-display);font-size:20px;display:block;margin-bottom:4px}
+.pdf-sheet .cta .url{font-weight:800;color:#551CAF;margin-top:8px}
+.pdf-sheet ol{margin:6px 0 0;padding-left:18px;font-size:11px;color:#635A78}
+.pdf-sheet ol li{margin:3px 0}
 </style>
 </head>
 <body>
@@ -209,8 +251,8 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--violet);outline-off
 
   <nav class="track" aria-label="Tiến độ" id="track">
     <div class="stage" data-s="1"><div class="bar"><i></i></div><span>1 · Tố chất</span></div>
-    <div class="stage" data-s="2"><div class="bar"><i></i></div><span>2 · Sẵn sàng</span></div>
-    <div class="stage" data-s="3"><div class="bar"><i></i></div><span>3 · Đánh giá việc</span></div>
+    <div class="stage" data-s="2"><div class="bar"><i></i></div><span>2 · Kỹ năng</span></div>
+    <div class="stage" data-s="3"><div class="bar"><i></i></div><span>3 · Ưu tiên</span></div>
   </nav>
 
   <main id="app" aria-live="polite"></main>
@@ -219,154 +261,108 @@ button:focus-visible,a:focus-visible{outline:3px solid var(--violet);outline-off
 <script>
 const UPZI = "https://www.upzi.vn/tai-ung-dung?utm_source=NGO&utm_campaign=AIESEC_FHN_NEU";
 const ONET = "https://www.onetonline.org/link/details/41-4012.00";
+const CCBY = "https://creativecommons.org/licenses/by/4.0/";
 
-/* Tầng 1a – tố chất nền tảng, theo O*NET 41-4012.00 (Work Styles, điểm Impact /100).
-   Kiên trì (100) và Thích nghi (60) được đánh giá ở Tầng 2 qua bộ kỹ năng Talent Guide 2026. */
+/* Bước 1 – O*NET OnLine 41-4012.00, Work Styles. Câu tự đánh giá = định nghĩa O*NET, Upzi dịch sang ngôi thứ nhất.
+   persona = tên gọi do Upzi đặt. w = điểm Impact của O*NET, chỉ dùng để phân định khi bằng điểm. */
 const TRAITS = [
-  {id:"social",t:"Định hướng xã hội",en:"Social Orientation",w:94,d:"Mình thấy có năng lượng khi được trò chuyện, làm việc với nhiều người, kể cả người mới gặp.",
-   tip:"Mỗi tuần chủ động làm quen một người mới trong ngành bạn quan tâm (sự kiện, CLB, LinkedIn) và hỏi họ một câu về công việc."},
-  {id:"conf",t:"Tự tin",en:"Self-Confidence",w:80,d:"Mình thoải mái chủ động bắt chuyện và trình bày ý kiến trước người lạ hoặc người lớn hơn mình.",
-   tip:"Luyện một đoạn giới thiệu bản thân 60 giây và dùng nó ở mọi dịp có thể, đến khi nói ra tự nhiên."},
-  {id:"achieve",t:"Định hướng thành tích",en:"Achievement Orientation",w:77,d:"Mình thích đặt mục tiêu cụ thể và có thêm động lực khi thấy mình tiến gần mục tiêu.",
-   tip:"Đặt một mục tiêu có con số cho tháng này (ví dụ số người liên hệ, số nhà tài trợ) và theo dõi tiến độ mỗi tuần."},
-  {id:"opt",t:"Lạc quan",en:"Optimism",w:70,d:"Khi mọi việc không như ý, mình vẫn tin sẽ tìm ra cách và giữ được tinh thần tích cực.",
-   tip:"Sau mỗi lần không đạt kết quả, viết ra một điều học được và một việc sẽ thử khác ở lần sau."},
-  {id:"dep",t:"Đáng tin cậy",en:"Dependability",w:69,d:"Đã hứa là mình làm, đúng hẹn và đến nơi đến chốn.",
-   tip:"Dùng một công cụ ghi việc (Google Tasks, Notion) cho mọi lời hứa follow-up, kể cả việc nhỏ."},
-  {id:"init",t:"Chủ động",en:"Initiative",w:68,d:"Mình tự tìm việc cần làm và đề xuất ý tưởng mà không đợi ai giao.",
-   tip:"Trong nhóm hoặc CLB, chủ động đề xuất và nhận làm một việc mới trước khi được giao."}
+  {id:"social",t:"Định hướng xã hội",en:"Social Orientation",w:94,persona:"Người Kết nối",
+   me:"Mình hay tìm đến, thích thú và được tiếp thêm năng lượng khi tương tác với mọi người trong công việc.",
+   you:"Bạn có xu hướng tìm đến, tận hưởng và được tiếp thêm năng lượng từ việc tương tác với mọi người trong công việc."},
+  {id:"conf",t:"Tự tin",en:"Self-Confidence",w:80,persona:"Người Tiên phong",
+   me:"Mình tin vào năng lực làm việc của mình và tin mình kiểm soát được kết quả công việc.",
+   you:"Bạn có xu hướng tin vào năng lực làm việc của mình và tin rằng mình kiểm soát được kết quả công việc."},
+  {id:"achieve",t:"Định hướng thành tích",en:"Achievement Orientation",w:77,persona:"Người Chinh phục",
+   me:"Mình đặt ra và theo đuổi những mục tiêu công việc mang tính thử thách với bản thân, đặt tiêu chuẩn cao và nỗ lực hết sức để đạt được.",
+   you:"Bạn có xu hướng đặt ra và theo đuổi những mục tiêu công việc mang tính thử thách với chính mình, đặt tiêu chuẩn cao và nỗ lực hết sức để đạt được."},
+  {id:"opt",t:"Lạc quan",en:"Optimism",w:70,persona:"Người Truyền lửa",
+   me:"Mình giữ được thái độ và cảm xúc tích cực trong công việc, kể cả khi gặp hoàn cảnh khó khăn.",
+   you:"Bạn có xu hướng giữ thái độ và cảm xúc tích cực trong công việc, kể cả khi gặp hoàn cảnh khó khăn."},
+  {id:"dep",t:"Đáng tin cậy",en:"Dependability",w:69,persona:"Người Giữ chữ tín",
+   me:"Mình đáng tin, có trách nhiệm và nhất quán trong việc hoàn thành những nghĩa vụ công việc.",
+   you:"Bạn có xu hướng đáng tin, có trách nhiệm và nhất quán trong việc hoàn thành những gì công việc đòi hỏi."},
+  {id:"init",t:"Chủ động",en:"Initiative",w:68,persona:"Người Khởi xướng",
+   me:"Mình chủ động và sẵn sàng nhận thêm trách nhiệm, kể cả những đầu việc nằm ngoài vai trò được giao.",
+   you:"Bạn có xu hướng chủ động và sẵn sàng nhận thêm trách nhiệm, kể cả những đầu việc nằm ngoài vai trò được giao."}
 ];
 
-/* Tầng 1b – phong cách làm BD. Cách chia Hunter/Farmer là cách phân vai phổ biến trong quản trị bán hàng;
-   nhóm Connector/Growth do Upzi bổ sung để phản ánh các vai trò Partnership và Growth. */
-const STYLES = {
-  H:{vi:"Người Chinh phục",en:"The Hunter",role:"Sales Development Representative, Business Development Representative, Account Executive, Field Sales, Inside Sales",
-     desc:"Bạn có năng lượng với mục tiêu rõ ràng và cảm giác “chốt” được điều tưởng như không thể. Lời từ chối với bạn là bài toán cần giải bằng cách khác, không phải điểm dừng.",
-     strength:"Chủ động, tự tin tiếp cận người lạ, bền bỉ theo đuổi mục tiêu.",
-     watch:"Dễ nóng vội chốt khi chưa hiểu đủ nhu cầu khách. Hãy luyện thói quen hỏi trước, đề xuất sau.",
-     skill:"Đặt câu hỏi khám phá nhu cầu, xử lý từ chối, đàm phán."},
-  F:{vi:"Người Vun đắp",en:"The Farmer",role:"Account Manager, Key Account Manager, Customer Success",
-     desc:"Bạn mạnh nhất khi xây dựng quan hệ lâu dài. Bạn để ý chi tiết, nhớ người khác cần gì và khiến họ muốn quay lại làm việc với mình.",
-     strength:"Lắng nghe tốt, tận tâm, đáng tin cậy, giữ được mối quan hệ.",
-     watch:"Có thể ngại chủ động đề xuất thêm giá trị. Hãy tập nhìn ra cơ hội giúp khách hàng làm được nhiều hơn.",
-     skill:"Quản lý khách hàng trên phần mềm quản lý khách hàng (Customer Relationship Management – CRM), phát hiện nhu cầu mới, giao tiếp chuyên nghiệp."},
-  C:{vi:"Người Kết nối",en:"The Connector",role:"Partnership, Channel/Distributor Sales, Alliances",
-     desc:"Bạn nhìn thấy điểm chung giữa những bên tưởng như không liên quan và thích tạo ra giá trị khi hai bên cùng thắng. Mạng lưới quan hệ là tài sản bạn chăm chút.",
-     strength:"Tư duy đôi bên cùng có lợi, network rộng, nhìn bức tranh lớn.",
-     watch:"Ý tưởng nhiều nhưng cần chuyển thành kết quả đo được. Hãy luyện cách chốt cam kết cụ thể với đối tác.",
-     skill:"Đàm phán đôi bên cùng có lợi, viết đề xuất hợp tác, làm việc với nhiều bên liên quan."},
-  A:{vi:"Người Tăng trưởng",en:"The Growth Analyst",role:"Growth, Sales Operations, Sales Analyst",
-     desc:"Bạn thích hiểu “vì sao” đằng sau con số và hào hứng khi một thử nghiệm nhỏ tạo ra kết quả lớn. Bạn là cầu nối giữa dữ liệu và quyết định kinh doanh.",
-     strength:"Tư duy phân tích, thích thử nghiệm, dùng công cụ nhanh.",
-     watch:"Dễ mải mê với số liệu mà quên con người phía sau. Hãy dành thời gian nói chuyện trực tiếp với khách hàng.",
-     skill:"Excel/Google Sheets, đọc chỉ số phễu bán hàng, dùng AI để phân tích."}
-};
-const ORDER = ["H","F","C","A"];
-const Q1 = [
-  {q:"Ở CLB hay nhóm, việc bạn hay xung phong nhận nhất là gì?",o:[
-    ["Đi kêu gọi tài trợ từ những nhà tài trợ mới","H"],["Giữ liên lạc, chăm sóc các nhà tài trợ cũ","F"],
-    ["Kết nối CLB với một tổ chức khác để làm chung sự kiện","C"],["Theo dõi số đăng ký và tìm cách tăng lượt tham gia","A"]]},
-  {q:"Điều gì khiến bạn thấy “đã” nhất sau một ngày làm việc?",o:[
-    ["Một người cảm ơn vì mình đã hỗ trợ rất tận tình","F"],["Chốt được một điều mà hôm qua còn là “không”","H"],
-    ["Thử một cách làm mới và thấy con số tăng lên","A"],["Giới thiệu hai bên gặp nhau và cả hai cùng có lợi","C"]]},
-  {q:"Khi bị từ chối thẳng thừng, phản ứng đầu tiên của bạn là…",o:[
-    ["Xem lại mình đã tiếp cận sai ở bước nào","A"],["Tìm người khác trong mạng lưới có thể giới thiệu giúp","C"],
-    ["Hơi cay, nhưng muốn thử lại ngay bằng cách khác","H"],["Hỏi xem họ thật sự cần gì để quay lại khi phù hợp","F"]]},
-  {q:"Nhận một dự án mới, bạn thường bắt đầu bằng việc…",o:[
-    ["Nghĩ xem ai hoặc tổ chức nào có thể cùng làm","C"],["Lên danh sách người cần liên hệ và bắt tay gọi luôn","H"],
-    ["Hỏi kỹ những người liên quan để hiểu họ cần gì","F"],["Tìm dữ liệu và đặt mục tiêu đo được","A"]]},
-  {q:"Mục tiêu một tháng nào khiến bạn hào hứng nhất?",o:[
-    ["100% khách hàng cũ quyết định gia hạn","F"],["Ký được một đối tác chiến lược","C"],
-    ["Tăng tỷ lệ chuyển đổi thêm 20%","A"],["Có thêm 10 khách hàng mới","H"]]},
-  {q:"Kỹ năng bạn muốn giỏi nhất trong một năm tới là gì?",o:[
-    ["Phân tích dữ liệu và dùng công cụ AI","A"],["Đàm phán và chốt deal","H"],
-    ["Xây dựng network và các mối hợp tác","C"],["Chăm sóc và giữ chân khách hàng","F"]]}
-];
-
-/* Tầng 2 – Navigos Group, Talent Guide 2026, tr. 68, Biểu đồ 38 (danh sách kỹ năng tham khảo WEF Future of Jobs 2025) */
+/* Bước 2 – Navigos Group, Talent Guide 2026, trang 68, Biểu đồ 38 (tên kỹ năng giữ nguyên như báo cáo) */
 const SKILLS = [
-  {id:"adapt",t:"Kiên trì, linh hoạt, thích nghi với thay đổi",stat:"39,2% doanh nghiệp ưu tiên",d:"Khi bị từ chối hoặc kế hoạch thay đổi, mình vẫn giữ được nhịp và thử cách khác.",
-   tip:"Nhận một việc có tỷ lệ từ chối cao (kêu gọi tài trợ, bán vé sự kiện) và ghi lại mỗi lần bị từ chối mình đã điều chỉnh gì."},
-  {id:"solve",t:"Phân tích tình huống và đưa ra giải pháp",stat:"34,4% doanh nghiệp ưu tiên",d:"Mình tìm ra được vấn đề thật sự của người khác và đề xuất hướng giải quyết.",
-   tip:"Luyện 5 câu hỏi khám phá nhu cầu (“Điều gì đang khiến bạn băn khoăn nhất?”) và thử phân tích một case kinh doanh mỗi tuần."},
-  {id:"tech",t:"Hiểu và ứng dụng công nghệ",stat:"26,4% doanh nghiệp ưu tiên",d:"Mình dùng thành thạo Excel/Google Sheets, công cụ AI và học công cụ mới nhanh.",
-   tip:"Tự làm một bảng theo dõi khách hàng (bảng quản lý khách hàng đơn giản) trên Google Sheets, và dùng AI để soạn rồi tự sửa lại một email tiếp cận."},
-  {id:"learn",t:"Ham học hỏi, cập nhật kiến thức",stat:"24,0% doanh nghiệp ưu tiên",d:"Mình chủ động tìm hiểu về ngành, sản phẩm, xu hướng mà không cần ai nhắc.",
-   tip:"Chọn một ngành bạn thích, mỗi tuần đọc một bản tin hoặc báo cáo ngành và tóm tắt lại 3 ý trong 5 phút."}
+  {id:"adapt",t:"Khả năng duy trì sự kiên trì, linh hoạt và thích nghi với thay đổi"},
+  {id:"solve",t:"Kỹ năng phân tích tình huống và đưa ra giải pháp phù hợp"},
+  {id:"tech",t:"Khả năng hiểu và ứng dụng công nghệ trong công việc"},
+  {id:"learn",t:"Tinh thần ham học hỏi và sẵn sàng cập nhật kiến thức liên tục"}
 ];
-const EVIDENCE = [
-  {id:"num",t:"CV của mình có ít nhất một kết quả bằng con số",
-   tip:"Viết lại một hoạt động theo công thức Hành động + Kết quả + Con số. Ví dụ: “Kêu gọi được X nhà tài trợ, tổng giá trị Y trong Z tháng”."},
-  {id:"exp",t:"Mình từng thuyết phục, bán hàng hoặc kêu gọi trong thực tế",
-   tip:"Học kỳ này, nhận một việc có “khách hàng” thật: ban đối ngoại CLB, bán vé sự kiện, part-time tư vấn bán hàng."},
-  {id:"profile",t:"Hồ sơ online (LinkedIn, Upzi) của mình đã cập nhật và thể hiện rõ mình muốn làm BD",
-   tip:"Cập nhật hồ sơ trên Upzi và LinkedIn với một dòng tiêu đề nói rõ hướng BD bạn muốn thử và 2–3 kết quả nổi bật."}
+/* Talent Guide 2026, trang 82 – khuyến nghị xây hồ sơ năng lực */
+const PROFILE = [
+  {id:"skills",t:"Hồ sơ năng lực trình bày theo dạng kỹ năng"},
+  {id:"port",t:"Portfolio và chứng chỉ được cập nhật"},
+  {id:"proj",t:"Kết quả từ các dự án thực tế mình đã thực hiện"}
 ];
-const PRIOS = [
-  {id:"learn",t:"Được học bài bản, có đào tạo",jd:"Tìm các cụm như “đào tạo”, “onboarding”, “mentor”, “lộ trình đào tạo”.",ask:"“Tháng đầu tiên của một bạn mới ở vị trí này trông như thế nào?”"},
-  {id:"pay",t:"Thu nhập và cơ chế thưởng",jd:"Xem lương cứng và thưởng/hoa hồng có được tách rõ không.",ask:"“Thu nhập của một bạn làm tốt ở vị trí này sau 6 tháng thường gồm những phần nào?”"},
-  {id:"boss",t:"Người quản lý, mentor tốt",jd:"Để ý mô tả về team: quy mô, ai là người hướng dẫn trực tiếp.",ask:"“Em sẽ báo cáo cho ai, và anh/chị thường hỗ trợ bạn mới như thế nào?”"},
-  {id:"industry",t:"Ngành hàng, sản phẩm mình tin",jd:"Tìm hiểu sản phẩm và khách hàng mục tiêu của công ty trước khi nộp.",ask:"“Khách hàng chọn sản phẩm của mình thay vì đối thủ vì điều gì?”"},
-  {id:"culture",t:"Văn hóa và môi trường",jd:"Đọc review, xem trang tuyển dụng và mạng xã hội của công ty.",ask:"“Điều gì khiến mọi người gắn bó với team này?”"},
-  {id:"path",t:"Lộ trình thăng tiến rõ ràng",jd:"Tìm thông tin về cấp bậc tiếp theo và tiêu chí đánh giá.",ask:"“Bạn làm tốt nhất ở vị trí này đã phát triển lên vai trò nào sau 1–2 năm?”"}
+const QUOTES = [
+  "Với Người Lao động trẻ, đây là thời điểm vàng để thử nghiệm vai trò mới, nhận các dự án đa dạng hoặc tận dụng cơ hội nghề tay trái có giá trị phát triển, thay vì chỉ tập trung vào thu nhập ngắn hạn.",
+  "[…] Người Lao Động nên đánh giá mức độ rủi ro của ngành nghề hiện tại, xác định sớm các kỹ năng còn thiếu và chủ động xây dựng lộ trình dịch chuyển nếu cần.",
+  "[…] Người Lao động không chỉ nên học cách sử dụng công cụ, mà cần hiểu cách AI vận hành, cũng như cách ứng dụng AI vào từng ngữ cảnh công việc để tạo ra lợi thế thực sự.",
+  "[…] thay vì dựa chủ yếu vào bằng cấp, Người Lao động nên xây dựng hồ sơ năng lực theo dạng kỹ năng, cập nhật portfolio, chứng chỉ và kết quả từ các dự án thực tế mà họ đã thực hiện."
 ];
-const INCOME = [
-  ["fixed","Lương cứng ổn định, thưởng ít","Hỏi kỹ tỷ lệ lương cứng/thưởng trước khi nhận việc. Vị trí chăm sóc khách hàng hiện hữu hoặc hỗ trợ kinh doanh thường có lương cứng rõ ràng hơn."],
-  ["mix","Cân bằng lương cứng và thưởng","Phần lớn vị trí BD/Sales entry-level có cơ cấu này. Hỏi rõ chỉ tiêu để nhận thưởng có thực tế với bạn mới không."],
-  ["var","Lương cứng vừa phải, thưởng/hoa hồng cao","Thường gặp ở vị trí phát triển khách hàng mới. Hỏi tỷ lệ bạn mới đạt chỉ tiêu trong 3 tháng đầu để biết mức thu nhập thực tế."]
-];
-const DECODER = [
-  ["Tìm kiếm và phát triển khách hàng mới","Vai trò Hunter: tiếp cận người lạ, chịu áp lực chỉ tiêu doanh số."],
-  ["Chăm sóc, duy trì khách hàng hiện hữu","Vai trò Account Management: giữ chân và bán thêm cho khách cũ."],
-  ["Thu nhập hấp dẫn, không giới hạn","Thường lương cứng thấp, phần lớn đến từ hoa hồng. Hỏi rõ cơ cấu."],
-  ["Chịu được áp lực cao","Có chỉ tiêu chặt, nhịp nhanh. Hỏi chỉ tiêu cụ thể theo tuần hoặc tháng."],
-  ["Ưu tiên ứng viên có kinh nghiệm","Vẫn nên nộp nếu bạn có bằng chứng từ ngoại khóa với kết quả có con số."]
-];
-const SCOPE = "Bài check-up này là bước khởi động trong phạm vi nghề BD, dựa trên tự đánh giá của bạn. Để định hướng nghề nghiệp chi tiết dựa trên dữ liệu thực tế của thị trường và tìm công việc chất lượng, hãy làm bài định hướng trên app Upzi.";
 
-const S = {screen:"intro", qi:0, traits:{}, a1:Array(Q1.length).fill(null), skills:{}, ev:{}, prios:[], income:null};
+/* Bước 3 – Talent Guide 2026, trang 37, Biểu đồ 14 – Yếu tố ưu tiên khi lựa chọn việc mới của Người Lao động */
+const FACTORS = [
+  {id:"pay",t:"Mức thu nhập (lương và các gói phụ cấp, trợ cấp)",p:"78,71%"},
+  {id:"promo",t:"Cơ hội thăng tiến trong công việc",p:"38,36%"},
+  {id:"culture",t:"Văn hóa doanh nghiệp",p:"36,37%"},
+  {id:"stable",t:"Độ ổn định và đảm bảo công việc",p:"27,87%"},
+  {id:"env",t:"Môi trường làm việc",p:"25,95%"},
+  {id:"boss",t:"Sếp trực tiếp",p:"25,64%"},
+  {id:"balance",t:"Cân bằng cuộc sống và công việc",p:"13,10%"},
+  {id:"loc",t:"Địa điểm làm việc thuận tiện",p:"12,60%"},
+  {id:"benefit",t:"Chế độ phúc lợi hấp dẫn",p:"10,68%"},
+  {id:"recog",t:"Sự công nhận và khen thưởng",p:"5,40%"},
+  {id:"hours",t:"Thời gian làm việc",p:"4,53%"},
+  {id:"flex",t:"Cơ chế làm việc linh hoạt",p:"4,53%"},
+  {id:"comm",t:"Giá trị cộng đồng mà công việc đem lại",p:"3,48%"}
+];
+
+const S = {screen:"intro", traits:{}, skills:{}, prof:{}, picks:[]};
 const app = document.getElementById("app");
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 
 function setTrack(){
   const fill={1:0,2:0,3:0};
-  const s1Total=TRAITS.length+Q1.length;
-  if(S.screen==="traits") fill[1]=Object.keys(S.traits).length/s1Total*100;
-  if(S.screen==="q1") fill[1]=(TRAITS.length+S.qi)/s1Total*100;
-  if(["q2","q3","result"].includes(S.screen)) fill[1]=100;
-  if(S.screen==="q2") fill[2]=(Object.keys(S.skills).length+Object.keys(S.ev).length)/(SKILLS.length+EVIDENCE.length)*100;
-  if(["q3","result"].includes(S.screen)) fill[2]=100;
-  if(S.screen==="q3") fill[3]=Math.min(1,(S.prios.length/3)*.7+(S.income?.3:0))*100;
+  if(S.screen==="traits") fill[1]=Object.keys(S.traits).length/TRAITS.length*100;
+  if(["skills","prio","result"].includes(S.screen)) fill[1]=100;
+  if(S.screen==="skills") fill[2]=(Object.keys(S.skills).length+Object.keys(S.prof).length)/(SKILLS.length+PROFILE.length)*100;
+  if(["prio","result"].includes(S.screen)) fill[2]=100;
+  if(S.screen==="prio") fill[3]=S.picks.length/3*100;
   if(S.screen==="result") fill[3]=100;
-  const cur={intro:0,traits:1,q1:1,q2:2,q3:3,result:4}[S.screen];
+  const cur={intro:0,traits:1,skills:2,prio:3,result:4}[S.screen];
   document.querySelectorAll(".stage").forEach(el=>{const s=+el.dataset.s;el.querySelector("i").style.width=fill[s]+"%";el.classList.toggle("on",s<=cur);});
   document.getElementById("track").hidden=S.screen==="intro";
 }
 function go(screen){ S.screen=screen; render(); window.scrollTo({top:0,behavior:"smooth"}); }
 function keepScroll(fn){ const y=window.scrollY; setTrack(); fn(); window.scrollTo(0,y); }
-function render(){ setTrack(); ({intro:rIntro,traits:rTraits,q1:rQ1,q2:rQ2,q3:rQ3,result:rResult})[S.screen](); }
+function render(){ setTrack(); ({intro:rIntro,traits:rTraits,skills:rSkills,prio:rPrio,result:rResult})[S.screen](); }
 const scale=(attr,id,val,lo,hi)=>`<div class="scale" role="group">${[1,2,3,4,5].map(n=>`<button ${attr}="${id}" data-v="${n}" class="${val===n?"sel":""}" aria-label="${n} trên 5">${n}</button>`).join("")}</div><div class="scale-legend"><span>${lo}</span><span>${hi}</span></div>`;
-const srcLine = html => `<p class="src">${html}</p>`;
 
 function rIntro(){
   app.innerHTML=`
   <section class="hero">
     <div class="hero-top"><div>
-      <span class="eyebrow" style="color:var(--lime)">Quà tặng từ Upzi</span>
+      <span class="eyebrow" style="color:var(--lime)">Quà nhỏ từ Upzi</span>
       <h1>BD Career <mark>Check-up</mark></h1>
     </div><div class="gau"><img src="gau.png" alt="Gấu, mascot của Upzi" width="520" height="515"></div></div>
-    <p>Bạn vừa nghe về nghề Business Development (BD). Giờ hãy thử soi lại chính mình: bạn có những tố chất nền tảng nào của nghề, mình làm BD theo phong cách nào, đã sẵn sàng đến đâu, và nên đánh giá một công việc BD ra sao.</p>
+    <p>Nghe xong buổi chia sẻ, chắc bạn cũng đang tự hỏi mình có hợp với nghề Business Development (BD) không. Bài này không trả lời thay bạn được, nhưng sẽ giúp bạn nhìn lại mình rõ hơn một chút.</p>
   </section>
   <section class="panel">
     <div class="steps">
-      <div class="step"><div class="n">1</div><div><b>Tố chất &amp; phong cách</b><small>6 tố chất nền tảng của nghề kinh doanh theo O*NET + 6 câu tình huống → phong cách làm BD của bạn</small></div></div>
-      <div class="step"><div class="n">2</div><div><b>Mức sẵn sàng</b><small>4 kỹ năng doanh nghiệp tìm nhiều nhất năm 2026 theo Talent Guide → Readiness Score và 2 gap ưu tiên</small></div></div>
-      <div class="step"><div class="n">3</div><div><b>Đánh giá công việc</b><small>Tiêu chí của riêng bạn → checklist để đọc mô tả công việc và đặt câu hỏi khi phỏng vấn</small></div></div>
+      <div class="step"><div class="n">1</div><div><b>Mình là người thế nào?</b><small>Tự chấm 6 tố chất O*NET đánh giá quan trọng với nghề kinh doanh</small></div></div>
+      <div class="step"><div class="n">2</div><div><b>Mình đang thiếu gì?</b><small>So mình với những kỹ năng doanh nghiệp đang tìm nhiều nhất năm 2026</small></div></div>
+      <div class="step"><div class="n">3</div><div><b>Mình muốn gì ở công việc đầu tiên?</b><small>Chọn điều bạn coi trọng nhất, rồi xem người đi làm nghĩ sao</small></div></div>
     </div>
-    <div class="meta"><span class="pill">Khoảng 7 phút</span><span class="pill">Không cần đăng nhập</span><span class="pill">Không lưu câu trả lời</span></div>
-    <button class="btn" id="start">Bắt đầu check-up</button>
-    <div class="scope"><b>Phạm vi của bài check-up</b><p>${SCOPE}</p></div>
-    <p class="note">Hãy trả lời theo cách bạn thật sự là, không phải cách bạn nghĩ mình nên là.</p>
+    <div class="meta"><span class="pill">Khoảng 5 phút</span><span class="pill">Không cần đăng nhập</span><span class="pill">Không lưu câu trả lời</span></div>
+    <button class="btn" id="start">Bắt đầu thôi</button>
+    <div class="scope"><b>Nói trước một chút</b><p>Đây chỉ là bài tự đánh giá nhanh, gói gọn trong chuyện làm BD. Nếu bạn muốn biết kỹ hơn mình hợp với nghề nào và tìm việc phù hợp, app Upzi có công cụ định hướng nghề nghiệp được xây trên dữ liệu thực tế của thị trường.</p></div>
+    <p class="note">Cứ trả lời thật lòng nhé. Không có đáp án đúng hay sai đâu.</p>
   </section>`;
   document.getElementById("start").onclick=()=>go("traits");
 }
@@ -375,191 +371,229 @@ function rTraits(){
   const done=Object.keys(S.traits).length===TRAITS.length;
   app.innerHTML=`
   <section class="panel">
-    <span class="eyebrow">Tầng 1 · Tố chất nền tảng</span>
-    <h2 class="qtitle">Câu nào đúng với bạn?</h2>
-    <p class="lead">Đây là những tố chất được đánh giá quan trọng nhất với nghề kinh doanh (Sales Representatives) trong cơ sở dữ liệu nghề nghiệp O*NET. Chấm từ 1 (chưa đúng với mình) đến 5 (rất đúng).</p>
-    ${TRAITS.map(t=>`<div class="skill"><span class="stat">O*NET · ${esc(t.en)} · mức quan trọng ${t.w}/100</span><h3>${esc(t.t)}</h3><p>${esc(t.d)}</p>${scale("data-t",t.id,S.traits[t.id],"Chưa đúng","Rất đúng")}</div>`).join("")}
-    ${srcLine(`Nguồn: O*NET OnLine (Bộ Lao động Hoa Kỳ), hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Hai tố chất Kiên trì (Perseverance, 100) và Thích nghi (Adaptability, 60) được đánh giá ở Tầng 2.`)}
+    <span class="eyebrow">Bước 1 · Mình là người thế nào?</span>
+    <h2 class="qtitle">Những câu này giống bạn tới đâu?</h2>
+    <p class="lead">Đây là 6 trong 8 tố chất mà O*NET, cơ sở dữ liệu nghề nghiệp của Bộ Lao động Hoa Kỳ, đánh giá quan trọng nhất với nghề Đại diện kinh doanh (Sales Representatives). Mỗi câu là định nghĩa của O*NET, được dịch và chuyển sang ngôi "mình". Chấm từ 1 (không giống mình lắm) đến 5 (đúng là mình).</p>
+    ${TRAITS.map(t=>`<div class="skill"><h3>${esc(t.t)}</h3><p>${esc(t.me)}</p>${scale("data-t",t.id,S.traits[t.id],"Không giống mình lắm","Đúng là mình")}</div>`).join("")}
     <div class="row between"><button class="back" id="back">← Quay lại</button><button class="btn" id="fwd" ${done?"":"disabled"}>Tiếp tục →</button></div>
   </section>`;
   app.querySelectorAll("[data-t]").forEach(b=>b.onclick=()=>{S.traits[b.dataset.t]=+b.dataset.v;keepScroll(rTraits);});
   document.getElementById("back").onclick=()=>go("intro");
-  document.getElementById("fwd").onclick=()=>{S.qi=0;go("q1");};
+  document.getElementById("fwd").onclick=()=>go("skills");
 }
 
-function rQ1(){
-  const q=Q1[S.qi];
+function rSkills(){
+  const tri=(id,val)=>`<div class="tri" role="group">${[["0","Chưa có"],["1","Có một chút"],["2","Có rồi"]].map(([v,l])=>`<button data-pf="${id}" data-v="${v}" class="${val===+v?"sel":""}">${l}</button>`).join("")}</div>`;
+  const done=Object.keys(S.skills).length===SKILLS.length&&Object.keys(S.prof).length===PROFILE.length;
   app.innerHTML=`
   <section class="panel">
-    <div class="row between"><span class="eyebrow">Tầng 1 · Phong cách làm BD</span><span class="qcount">${S.qi+1}/${Q1.length}</span></div>
-    <h2 class="qtitle">${esc(q.q)}</h2>
-    <div class="opts">${q.o.map(o=>`<button class="opt ${S.a1[S.qi]===o[1]?"sel":""}" data-k="${o[1]}">${esc(o[0])}</button>`).join("")}</div>
-    <div class="row between"><button class="back" id="back">← Quay lại</button>${S.a1[S.qi]?`<button class="btn ghost" id="fwd">Tiếp →</button>`:""}</div>
-  </section>`;
-  app.querySelectorAll(".opt").forEach(b=>b.onclick=()=>{S.a1[S.qi]=b.dataset.k;app.querySelectorAll(".opt").forEach(x=>x.classList.toggle("sel",x===b));setTimeout(next1,220);});
-  document.getElementById("back").onclick=()=>{ if(S.qi===0) go("traits"); else {S.qi--;render();} };
-  const f=document.getElementById("fwd"); if(f) f.onclick=next1;
-}
-function next1(){ if(S.qi<Q1.length-1){S.qi++;render();} else go("q2"); }
-
-function rQ2(){
-  const tri=(id,val)=>`<div class="tri" role="group">${[["0","Chưa"],["1","Một phần"],["2","Rõ ràng"]].map(([v,l])=>`<button data-ev="${id}" data-v="${v}" class="${val===+v?"sel":""}">${l}</button>`).join("")}</div>`;
-  const done=Object.keys(S.skills).length===SKILLS.length&&Object.keys(S.ev).length===EVIDENCE.length;
-  app.innerHTML=`
-  <section class="panel">
-    <span class="eyebrow">Tầng 2 · Mức sẵn sàng</span>
-    <h2 class="qtitle">Bạn đang ở đâu so với yêu cầu của thị trường?</h2>
-    <p class="lead">Đây là 4 nhóm kỹ năng doanh nghiệp tại Việt Nam ưu tiên tìm ở ứng viên nhiều nhất năm 2026. Tự chấm từ 1 đến 5.</p>
-    ${SKILLS.map(s=>`<div class="skill"><span class="stat">${s.stat}</span><h3>${esc(s.t)}</h3><p>${esc(s.d)}</p>${scale("data-id",s.id,S.skills[s.id],"Chưa có","Rất tự tin")}</div>`).join("")}
-    <p class="subhead">Bằng chứng bạn đang có</p>
-    ${EVIDENCE.map(e=>`<div class="skill"><h3>${esc(e.t)}</h3>${tri(e.id,S.ev[e.id])}</div>`).join("")}
-    ${srcLine(`Nguồn: Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, tr. 68, Biểu đồ 38 (khảo sát hơn 250 doanh nghiệp; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới).`)}
+    <span class="eyebrow">Bước 2 · Mình đang thiếu gì?</span>
+    <h2 class="qtitle">Bạn tự tin với những kỹ năng này tới đâu?</h2>
+    <p class="lead">Theo khảo sát Talent Guide 2026 của Navigos Group, đây là 4 nhóm kỹ năng doanh nghiệp đang tìm nhiều nhất ở ứng viên.</p>
+    ${SKILLS.map(s=>`<div class="skill"><h3>${esc(s.t)}</h3>${scale("data-id",s.id,S.skills[s.id],"Chưa tự tin","Rất tự tin")}</div>`).join("")}
+    <p class="subhead">Còn hồ sơ của bạn thì sao?</p>
+    <p class="lead">Talent Guide 2026 (trang 82) khuyến nghị người lao động xây dựng hồ sơ năng lực theo dạng kỹ năng, cập nhật portfolio, chứng chỉ và kết quả từ các dự án thực tế, thay vì dựa chủ yếu vào bằng cấp. Hồ sơ của bạn đã có những thứ này chưa?</p>
+    ${PROFILE.map(e=>`<div class="skill"><h3>${esc(e.t)}</h3>${tri(e.id,S.prof[e.id])}</div>`).join("")}
     <div class="row between"><button class="back" id="back">← Quay lại</button><button class="btn" id="fwd" ${done?"":"disabled"}>Tiếp tục →</button></div>
   </section>`;
-  app.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>{S.skills[b.dataset.id]=+b.dataset.v;keepScroll(rQ2);});
-  app.querySelectorAll("[data-ev]").forEach(b=>b.onclick=()=>{S.ev[b.dataset.ev]=+b.dataset.v;keepScroll(rQ2);});
-  document.getElementById("back").onclick=()=>{S.qi=Q1.length-1;go("q1");};
-  document.getElementById("fwd").onclick=()=>go("q3");
+  app.querySelectorAll("[data-id]").forEach(b=>b.onclick=()=>{S.skills[b.dataset.id]=+b.dataset.v;keepScroll(rSkills);});
+  app.querySelectorAll("[data-pf]").forEach(b=>b.onclick=()=>{S.prof[b.dataset.pf]=+b.dataset.v;keepScroll(rSkills);});
+  document.getElementById("back").onclick=()=>go("traits");
+  document.getElementById("fwd").onclick=()=>go("prio");
 }
 
-function rQ3(){
-  const done=S.prios.length>=1&&S.income;
+function rPrio(){
+  const done=S.picks.length>=1;
   app.innerHTML=`
   <section class="panel">
-    <span class="eyebrow">Tầng 3 · Đánh giá công việc</span>
-    <h2 class="qtitle">Khi xem xét một công việc BD đầu tiên, điều gì quan trọng nhất với bạn?</h2>
-    <p class="lead">Chọn tối đa 3 tiêu chí. Bạn sẽ nhận một checklist để đọc mô tả công việc và đặt câu hỏi khi phỏng vấn.</p>
-    <div class="prio">${PRIOS.map(p=>{const on=S.prios.includes(p.id);return `<button data-p="${p.id}" class="${on?"sel":""}" aria-pressed="${on}"><span>${esc(p.t)}</span><span class="k">${on?S.prios.indexOf(p.id)+1:""}</span></button>`}).join("")}</div>
-    <p class="subhead">Bạn muốn cơ cấu thu nhập như thế nào?</p>
-    <div class="opts">${INCOME.map(i=>`<button class="opt ${S.income===i[0]?"sel":""}" data-i="${i[0]}">${esc(i[1])}</button>`).join("")}</div>
+    <span class="eyebrow">Bước 3 · Mình muốn gì?</span>
+    <h2 class="qtitle">Với công việc đầu tiên, bạn coi trọng điều gì nhất?</h2>
+    <p class="lead">Chọn tối đa 3 điều. Ở trang kết quả, bạn sẽ thấy người đi làm ngoài kia chọn giống bạn nhiều hay ít.</p>
+    <div class="prio">${FACTORS.map(p=>{const on=S.picks.includes(p.id);return `<button data-p="${p.id}" class="${on?"sel":""}" aria-pressed="${on}"><span>${esc(p.t)}</span><span class="k">${on?S.picks.indexOf(p.id)+1:""}</span></button>`}).join("")}</div>
     <div class="row between"><button class="back" id="back">← Quay lại</button><button class="btn" id="fwd" ${done?"":"disabled"}>Xem kết quả →</button></div>
   </section>`;
-  app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const id=b.dataset.p,k=S.prios.indexOf(id);if(k>=0)S.prios.splice(k,1);else if(S.prios.length<3)S.prios.push(id);keepScroll(rQ3);});
-  app.querySelectorAll("[data-i]").forEach(b=>b.onclick=()=>{S.income=b.dataset.i;keepScroll(rQ3);});
-  document.getElementById("back").onclick=()=>go("q2");
+  app.querySelectorAll("[data-p]").forEach(b=>b.onclick=()=>{const id=b.dataset.p,k=S.picks.indexOf(id);if(k>=0)S.picks.splice(k,1);else if(S.picks.length<3)S.picks.push(id);keepScroll(rPrio);});
+  document.getElementById("back").onclick=()=>go("skills");
   document.getElementById("fwd").onclick=()=>go("result");
 }
 
 function compute(){
-  const cnt={H:0,F:0,C:0,A:0}; S.a1.forEach(k=>{if(k)cnt[k]++;});
-  let best=ORDER[0]; ORDER.forEach(k=>{if(cnt[k]>cnt[best])best=k;});
-  const tied=ORDER.filter(k=>cnt[k]===cnt[best]);
-  if(tied.length>1){for(let i=S.a1.length-1;i>=0;i--){if(tied.includes(S.a1[i])){best=S.a1[i];break;}}}
-  // traits: sort by self-rating, ties broken by O*NET importance
   const tr=TRAITS.map(t=>({...t,r:S.traits[t.id]})).sort((a,b)=>b.r-a.r||b.w-a.w);
-  const top=tr.slice(0,3);
-  const lowest=[...tr].sort((a,b)=>a.r-b.r||b.w-a.w)[0];
-  const skillPts=SKILLS.reduce((s,k)=>s+(S.skills[k.id]-1),0)/(SKILLS.length*4)*60;
-  const evPts=EVIDENCE.reduce((s,k)=>s+S.ev[k.id],0)/(EVIDENCE.length*2)*40;
-  const score=Math.round(skillPts+evPts);
-  const level=score>=75?"Sẵn sàng ứng tuyển":score>=45?"Sẵn sàng thử sức":"Đang khám phá";
-  const items=[...SKILLS.map(s=>({t:s.t,tip:s.tip,r:(S.skills[s.id]-1)/4})),...EVIDENCE.map(e=>({t:e.t,tip:e.tip,r:S.ev[e.id]/2}))].sort((a,b)=>a.r-b.r);
-  const gaps=items.filter(i=>i.r<1).slice(0,2);
-  return {cnt,best,top,lowest,score,level,gaps};
+  const sk=SKILLS.map(s=>({...s,r:S.skills[s.id]})).sort((a,b)=>a.r-b.r);
+  const lowSkills=sk.filter(s=>s.r<=3).slice(0,2);
+  const todo=PROFILE.filter(p=>S.prof[p.id]<2);
+  const picks=S.picks.map(id=>FACTORS.find(f=>f.id===id));
+  return {top:tr[0],next:tr.slice(1,3),lowSkills,todo,picks};
 }
 
 function rResult(){
-  const R=compute(),P=STYLES[R.best],inc=INCOME.find(i=>i[0]===S.income),prios=S.prios.map(id=>PRIOS.find(p=>p.id===id));
-  const C=2*Math.PI*56,off=C*(1-R.score/100);
-  const levelMsg={
-    "Đang khám phá":"Bạn đang ở giai đoạn tìm hiểu, và đây là lúc tốt nhất để thử. Tập trung tạo trải nghiệm thực tế đầu tiên trước khi ứng tuyển.",
-    "Sẵn sàng thử sức":"Bạn đã có nền tảng. Bù 2 gap bên dưới và bắt đầu ứng tuyển các vị trí intern hoặc fresher BD.",
-    "Sẵn sàng ứng tuyển":"Hồ sơ của bạn đã có nhiều điểm doanh nghiệp tìm kiếm. Hãy ứng tuyển và chuẩn bị kể câu chuyện kết quả của mình thật thuyết phục."
-  }[R.level];
-  const showLow = R.lowest.r<4 && !R.top.find(t=>t.id===R.lowest.id);
+  const R=compute();
   app.innerHTML=`
   <section class="persona">
     <div class="hero-top"><div>
-      <span class="eyebrow">Phong cách làm BD của bạn</span>
-      <h2>${esc(P.vi)}</h2>
+      <span class="eyebrow">Tố chất nổi bật nhất của bạn</span>
+      <h2>${esc(R.top.persona)}</h2>
     </div><div class="gau"><img src="gau.png" alt="Gấu chúc mừng bạn" width="520" height="515"></div></div>
-    <span class="en">${esc(P.en)}</span>
-    <p>${esc(P.desc)}</p>
-    <p class="roles">Phong cách này thường thấy ở các vai trò: <b>${esc(P.role)}</b></p>
-    <div class="mix">${ORDER.map(k=>`<div class="r"><span>${esc(STYLES[k].vi.replace("Người ",""))}</span><span class="t"><i style="width:${R.cnt[k]/Q1.length*100}%"></i></span><span class="v">${R.cnt[k]}/${Q1.length}</span></div>`).join("")}</div>
+    <span class="en">${esc(R.top.t)} · ${esc(R.top.en)}</span>
+    <p>${esc(R.top.you)}</p>
+    <p class="roles">Hai tố chất bạn chấm cao tiếp theo: <b>${R.next.map(t=>esc(t.t)).join(" và ")}</b></p>
+    <p class="fine">Tên gọi do Upzi đặt cho dễ nhớ. Định nghĩa tố chất theo O*NET OnLine.</p>
   </section>
 
   <section class="panel">
-    <span class="eyebrow">Tầng 1 · Tố chất nổi bật của bạn</span>
-    <div class="traits">${R.top.map(t=>`<div class="trait"><b>${esc(t.t)}</b><small>${esc(t.en)} · ${t.r}/5</small></div>`).join("")}</div>
-    <dl class="kv">
-      <div><dt>Điểm mạnh của phong cách</dt><dd>${esc(P.strength)}</dd></div>
-      <div><dt>Cần để ý</dt><dd>${esc(P.watch)}</dd></div>
-      <div><dt>Kỹ năng nên luyện trước</dt><dd>${esc(P.skill)}</dd></div>
-      ${showLow?`<div><dt>Tố chất nên rèn thêm: ${esc(R.lowest.t)}</dt><dd>${esc(R.lowest.tip)}</dd></div>`:""}
-    </dl>
+    <span class="eyebrow">Bước 2 · Mình đang thiếu gì?</span>
+    ${R.lowSkills.length?`<h2 class="qtitle">Hai kỹ năng bạn tự chấm thấp nhất</h2>
+      <div class="gaplist">${R.lowSkills.map(s=>`<div class="gap"><b>${esc(s.t)}</b><p>Bạn tự chấm ${s.r}/5</p></div>`).join("")}</div>`
+     :`<h2 class="qtitle">Bạn tự chấm từ 4/5 trở lên ở cả 4 kỹ năng</h2>`}
+    ${R.todo.length?`<p class="subhead">Những điều Talent Guide 2026 khuyến nghị mà hồ sơ của bạn chưa có đủ</p><ul class="check">${R.todo.map(p=>`<li><span>${esc(p.t)}</span></li>`).join("")}</ul>`
+     :`<p class="subhead">Hồ sơ của bạn đã có đủ 3 điều Talent Guide 2026 khuyến nghị.</p>`}
+    <p class="subhead">Talent Guide 2026 nhắn gửi người đi làm</p>
+    <div class="quotes">${QUOTES.map(q=>`<blockquote>“${esc(q)}”</blockquote>`).join("")}</div>
+    <p class="src">Trích Talent Guide 2026 của Navigos Group, trang 82.</p>
   </section>
 
   <section class="panel">
-    <span class="eyebrow">Tầng 2 · Readiness Score</span>
-    <div class="score">
-      <div class="ring" role="img" aria-label="Readiness Score ${R.score} trên 100">
-        <svg viewBox="0 0 132 132"><circle cx="66" cy="66" r="56" fill="none" stroke="var(--line)" stroke-width="12"/>
-        <circle cx="66" cy="66" r="56" fill="none" stroke="var(--violet)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${C}" stroke-dashoffset="${off}"/></svg>
-        <div class="num"><div><b>${R.score}</b><small>/100</small></div></div>
-      </div>
-      <div style="display:grid;gap:8px;min-width:0">
-        <span class="level">${R.level}</span>
-        <p>${levelMsg}</p>
-        <div class="levels"><span>0–44 Đang khám phá</span>·<span>45–74 Sẵn sàng thử sức</span>·<span>75–100 Sẵn sàng ứng tuyển</span></div>
-      </div>
-    </div>
-    ${R.gaps.length?`<p class="subhead">2 gap ưu tiên cần bù</p>${R.gaps.map(g=>`<div class="gap"><b>${esc(g.t)}</b><p>${esc(g.tip)}</p></div>`).join("")}`:`<p class="subhead">Bạn tự đánh giá rất tốt ở mọi mục. Hãy kiểm chứng bằng cách đưa kết quả cụ thể vào CV và ứng tuyển.</p>`}
-    <p class="note">Readiness Score = 60% từ 4 kỹ năng + 40% từ 3 bằng chứng trong hồ sơ, theo cách tính của Upzi.</p>
-  </section>
-
-  <section class="panel">
-    <span class="eyebrow">Tầng 3 · Checklist đánh giá công việc</span>
-    <p class="lead">Mang checklist này theo khi đọc mô tả công việc và đi phỏng vấn.</p>
-    <ul class="check">
-      ${prios.map(p=>`<li><span><b>${esc(p.t)}</b><small>Khi đọc mô tả công việc: ${esc(p.jd)}</small><small>Hỏi nhà tuyển dụng: ${esc(p.ask)}</small></span></li>`).join("")}
-      <li><span><b>Cơ cấu thu nhập: ${esc(inc[1])}</b><small>${esc(inc[2])}</small></span></li>
-    </ul>
-    <p class="subhead">Giải mã nhanh mô tả công việc BD</p>
-    <div class="decoder">${DECODER.map(d=>`<div><q>${esc(d[0])}</q><span>${esc(d[1])}</span></div>`).join("")}</div>
+    <span class="eyebrow">Bước 3 · Mình muốn gì?</span>
+    <h2 class="qtitle">Điều bạn coi trọng, và người đi làm nghĩ sao</h2>
+    <div class="picks">${R.picks.map(p=>`<div class="pick"><span>${esc(p.t)}</span><b>${p.p}</b></div>`).join("")}</div>
+    <p class="note">Con số là tỷ lệ người đi làm chọn yếu tố này khi tìm việc mới, theo khảo sát Talent Guide 2026 (trang 37, Biểu đồ 14).</p>
+    <blockquote>“[…] thu nhập và cơ hội phát triển nghề nghiệp tiếp tục là hai yếu tố có sức ảnh hưởng lớn nhất đến cả quyết định rời bỏ công việc hiện tại lẫn lựa chọn công việc mới của Người Lao động.”</blockquote>
+    <p class="src">Trích Talent Guide 2026 của Navigos Group, trang 37.</p>
   </section>
 
   <section class="handoff">
-    <span class="eyebrow">Bước tiếp theo cùng Upzi</span>
-    <h2>Muốn biết chi tiết nghề nào hợp với bạn?</h2>
-    <p>Bài check-up vừa rồi chỉ là bước khởi động trong phạm vi BD, dựa trên tự đánh giá. Công cụ định hướng nghề nghiệp trên app Upzi được xây dựng trên dữ liệu thực tế của thị trường, giúp bạn hiểu bản thân, định hướng nghề nghiệp chi tiết và tìm công việc chất lượng phù hợp.</p>
-    <a class="btn" href="${UPZI}" target="_blank" rel="noopener">Tải app Upzi và làm bài định hướng →</a>
+    <span class="eyebrow">Đi tiếp cùng Upzi</span>
+    <h2>Muốn biết kỹ hơn mình hợp với nghề nào?</h2>
+    <p>Bài này chỉ giúp bạn nhìn lại mình trong phạm vi BD. Muốn đi sâu hơn, công cụ định hướng nghề nghiệp trên app Upzi được xây trên dữ liệu thực tế của thị trường, giúp bạn hiểu mình rõ hơn và tìm được công việc phù hợp.</p>
+    <a class="btn" href="${UPZI}" target="_blank" rel="noopener">Tải app Upzi →</a>
   </section>
 
-  <section class="panel">
+  <section class="panel savebox">
+    <span class="eyebrow">Lưu lại kết quả</span>
+    <h2 class="qtitle">Giữ bản kết quả này để xem lại sau nhé</h2>
+    <p class="lead">File PDF gồm toàn bộ kết quả của bạn và nguồn tham chiếu.</p>
     <div class="row">
+      <button class="btn" id="pdf">Tải kết quả (PDF)</button>
       <button class="btn primary" id="copy">Sao chép kết quả</button>
       <button class="btn ghost" id="again">Làm lại</button>
       <span class="toast" id="toast" hidden>Đã sao chép</span>
     </div>
-    <p class="note">Mẹo: chụp màn hình thẻ phong cách và đăng kèm action plan trong Career Discovery Challenge.</p>
+    <p class="pdfmsg" id="pdfmsg" hidden></p>
   </section>
 
   <section class="sources">
-    <b>Nguồn tham chiếu · Upzi tổng hợp và biên soạn</b>
+    <b>Nguồn tham chiếu · Upzi tổng hợp</b>
     <ol>
-      <li>Tố chất nền tảng (Tầng 1): <a href="${ONET}" target="_blank" rel="noopener">O*NET OnLine</a>, Bộ Lao động Hoa Kỳ, hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Đây là dữ liệu nghề tại Mỹ, dùng làm tham chiếu chuẩn quốc tế.</li>
-      <li>Phong cách làm BD (Tầng 1): 4 phong cách do Upzi khái quát từ các vai trò phổ biến trong nghề BD, dựa trên cách phân vai Hunter/Farmer quen thuộc trong quản trị bán hàng. Mỗi phong cách ứng với nhiều vai trò khác nhau, và danh sách này không bao gồm mọi vai trò trong BD.</li>
-      <li>Kỹ năng và mức sẵn sàng (Tầng 2): Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, tr. 68, Biểu đồ 38; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới.</li>
-      <li>Câu hỏi tình huống, cách tính điểm, gợi ý và checklist đánh giá công việc: Upzi biên soạn dựa trên kinh nghiệm tuyển dụng và kinh doanh thực tế.</li>
+      <li>Bước 1: 6 tố chất và định nghĩa lấy từ <a href="${ONET}" target="_blank" rel="noopener">O*NET OnLine</a>, hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Trang này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép <a href="${CCBY}" target="_blank" rel="noopener">CC BY 4.0</a>. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
+      <li>Bước 2: Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, trang 68 (Biểu đồ 38; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới) và trang 82 (Lời khuyên dành cho Người Lao động).</li>
+      <li>Bước 3: Navigos Group, Talent Guide 2026, trang 37 (Biểu đồ 14 – Yếu tố ưu tiên khi lựa chọn việc mới của Người Lao động).</li>
+      <li>Thang chấm 1–5 và cách chọn nội dung hiển thị ở trang kết quả (tố chất chấm cao nhất, 2 kỹ năng chấm thấp nhất) chỉ là cách trình bày kết quả tự đánh giá của bạn, không phải nhận định của các nguồn trên.</li>
+      <li>Tên gọi các tố chất nổi bật (Người Kết nối, Người Chinh phục…) do Upzi đặt cho dễ nhớ. Tố chất nổi bật là tố chất bạn tự chấm cao nhất; nếu bằng điểm, ưu tiên tố chất O*NET đánh giá quan trọng hơn với nghề kinh doanh.</li>
     </ol>
-    <p>Đây là công cụ tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</p>
+    <p>Đây là bài tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</p>
   </section>`;
 
-  document.getElementById("again").onclick=()=>{Object.assign(S,{qi:0,traits:{},a1:Array(Q1.length).fill(null),skills:{},ev:{},prios:[],income:null});go("intro");};
+  document.getElementById("again").onclick=()=>{Object.assign(S,{traits:{},skills:{},prof:{},picks:[]});go("intro");};
+  document.getElementById("pdf").onclick=()=>downloadPdf(R);
   document.getElementById("copy").onclick=()=>{
     const txt=`BD Career Check-up by Upzi
-Phong cách làm BD: ${P.vi} (${P.en})
-Tố chất nổi bật: ${R.top.map(t=>t.t).join(", ")}
-Readiness Score: ${R.score}/100 – ${R.level}
-Gap ưu tiên: ${R.gaps.map(g=>g.t).join("; ")||"—"}
-Tiêu chí đánh giá công việc: ${prios.map(p=>p.t).join("; ")}; thu nhập: ${inc[1]}`;
+Tố chất nổi bật nhất: ${R.top.persona} (${R.top.t})
+Tiếp theo: ${R.next.map(t=>t.t).join(", ")}
+Kỹ năng nên bắt đầu trước: ${R.lowSkills.map(s=>s.t).join("; ")||"—"}
+Điều mình coi trọng khi chọn việc: ${R.picks.map(p=>p.t).join("; ")}`;
     const t=document.getElementById("toast");
     try{navigator.clipboard.writeText(txt).then(()=>{t.textContent="Đã sao chép";t.hidden=false},()=>fallback(txt,t));}catch(e){fallback(txt,t);}
   };
 }
+/* ---------- PDF ---------- */
+const LIBS=["https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js","https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"];
+let libsP=null;
+function loadScript(src){return new Promise((res,rej)=>{const s=document.createElement("script");s.src=src;s.onload=res;s.onerror=()=>rej({code:"lib"});document.head.appendChild(s);});}
+function loadLibs(){ if(!libsP) libsP=Promise.all(LIBS.map(loadScript)).catch(e=>{libsP=null;throw e;}); return libsP; }
+
+function buildSheet(R){
+  const d=document.createElement("div"); d.className="pdf-sheet"; d.setAttribute("aria-hidden","true");
+  const today=new Date().toLocaleDateString("vi-VN");
+  d.innerHTML=`
+  <div class="blk"><div class="ph"><img src="upzi-logo.png" alt=""><small>AIESEC · Heading for the Future<br>${today}</small></div>
+    <h1 class="title">BD Career Check-up · Kết quả của bạn</h1></div>
+  <div class="blk"><div class="card"><div>
+    <div class="lbl">Tố chất nổi bật nhất của bạn</div><h2>${esc(R.top.persona)}</h2>
+    <div class="en">${esc(R.top.t)} · ${esc(R.top.en)}</div>
+    <p>${esc(R.top.you)}</p>
+    <p>Hai tố chất bạn chấm cao tiếp theo: <b>${R.next.map(t=>esc(t.t)).join(" và ")}</b></p>
+    <p class="fine">Tên gọi do Upzi đặt cho dễ nhớ. Định nghĩa tố chất theo O*NET OnLine.</p>
+  </div><div class="disc"><img src="gau.png" alt=""></div></div></div>
+  <div class="blk"><div class="lbl">Bước 2 · Mình đang thiếu gì?</div>
+    ${R.lowSkills.length?`<h3>Hai kỹ năng bạn tự chấm thấp nhất</h3>${R.lowSkills.map(s=>`<div class="item"><b>${esc(s.t)}</b><small>Bạn tự chấm ${s.r}/5</small></div>`).join("")}`
+      :`<h3>Bạn tự chấm từ 4/5 trở lên ở cả 4 kỹ năng</h3>`}
+    ${R.todo.length?`<h3 style="margin-top:12px">Những điều Talent Guide 2026 khuyến nghị mà hồ sơ của bạn chưa có đủ</h3>${R.todo.map(p=>`<div class="item">${esc(p.t)}</div>`).join("")}`
+      :`<p style="margin-top:10px"><b>Hồ sơ của bạn đã có đủ 3 điều Talent Guide 2026 khuyến nghị.</b></p>`}</div>
+  <div class="blk"><h3>Talent Guide 2026 nhắn gửi người đi làm</h3>${QUOTES.map(q=>`<blockquote>“${esc(q)}”</blockquote>`).join("")}
+    <div class="src">Trích Talent Guide 2026 của Navigos Group, trang 82.</div></div>
+  <div class="blk"><div class="lbl">Bước 3 · Mình muốn gì?</div><h3>Điều bạn coi trọng, và người đi làm nghĩ sao</h3>
+    ${R.picks.map(p=>`<div class="pick"><span>${esc(p.t)}</span><b>${p.p}</b></div>`).join("")}
+    <div class="src">Tỷ lệ người đi làm chọn yếu tố này khi tìm việc mới, theo khảo sát Talent Guide 2026 (trang 37, Biểu đồ 14).</div>
+    <blockquote>“[…] thu nhập và cơ hội phát triển nghề nghiệp tiếp tục là hai yếu tố có sức ảnh hưởng lớn nhất đến cả quyết định rời bỏ công việc hiện tại lẫn lựa chọn công việc mới của Người Lao động.”</blockquote>
+    <div class="src">Trích Talent Guide 2026 của Navigos Group, trang 37.</div></div>
+  <div class="blk" data-link="${UPZI}"><div class="cta"><b>Muốn biết kỹ hơn mình hợp với nghề nào?</b>
+    Công cụ định hướng nghề nghiệp trên app Upzi được xây trên dữ liệu thực tế của thị trường, giúp bạn hiểu mình rõ hơn và tìm được công việc phù hợp.
+    <div class="url">Tải app Upzi: upzi.vn/tai-ung-dung</div></div></div>
+  <div class="blk"><div class="lbl">Nguồn tham chiếu · Upzi tổng hợp</div><ol>
+    <li>Bước 1: 6 tố chất và định nghĩa lấy từ O*NET OnLine (onetonline.org), hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Tài liệu này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép CC BY 4.0. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
+    <li>Bước 2: Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, trang 68 (Biểu đồ 38; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới) và trang 82.</li>
+    <li>Bước 3: Navigos Group, Talent Guide 2026, trang 37 (Biểu đồ 14).</li>
+    <li>Thang chấm 1–5 và cách chọn nội dung hiển thị chỉ là cách trình bày kết quả tự đánh giá, không phải nhận định của các nguồn trên.</li>
+    <li>Tên gọi các tố chất nổi bật do Upzi đặt cho dễ nhớ. Đây là bài tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</li>
+  </ol></div>`;
+  return d;
+}
+
+async function saveBlob(blob,name){
+  if(window.claude && typeof window.claude.use==="function"){
+    const dl=await window.claude.use("downloads");
+    if(!dl) throw {code:"unavailable"};
+    return dl.save({filename:name,data:blob});
+  }
+  const a=document.createElement("a"); a.href=URL.createObjectURL(blob); a.download=name;
+  document.body.appendChild(a); a.click(); setTimeout(()=>{URL.revokeObjectURL(a.href);a.remove();},3000);
+  return {status:"saved"};
+}
+
+async function downloadPdf(R){
+  const btn=document.getElementById("pdf"), msg=document.getElementById("pdfmsg");
+  const say=t=>{msg.textContent=t;msg.hidden=false;};
+  btn.disabled=true; say("Đang tạo file PDF, bạn chờ vài giây nhé…");
+  let sheet=null;
+  try{
+    await loadLibs();
+    if(document.fonts&&document.fonts.ready) await document.fonts.ready;
+    sheet=buildSheet(R); document.body.appendChild(sheet);
+    await Promise.all([...sheet.querySelectorAll("img")].map(i=>i.complete?0:new Promise(r=>{i.onload=i.onerror=r;})));
+    const {jsPDF}=window.jspdf; const pdf=new jsPDF({unit:"pt",format:"a4"});
+    const W=pdf.internal.pageSize.getWidth(), H=pdf.internal.pageSize.getHeight(), M=24, cw=W-2*M; let y=M;
+    for(const blk of sheet.querySelectorAll(".blk")){
+      const c=await window.html2canvas(blk,{scale:2,backgroundColor:"#ffffff",logging:false});
+      const h=c.height*cw/c.width;
+      if(y+h>H-M && y>M){ pdf.addPage(); y=M; }
+      pdf.addImage(c.toDataURL("image/jpeg",0.92),"JPEG",M,y,cw,h);
+      if(blk.dataset.link) pdf.link(M,y,cw,h,{url:blk.dataset.link});
+      y+=h;
+    }
+    sheet.remove(); sheet=null;
+    await saveBlob(pdf.output("blob"),"BD-Career-Check-up-Upzi.pdf");
+    say("Đã tải xong file PDF.");
+  }catch(e){
+    const code=e&&e.code;
+    say(code==="declined"?"Bạn đã hủy tải xuống."
+      :code==="rate_limited"?"Đang có một yêu cầu tải khác, bạn thử lại sau vài giây nhé."
+      :code==="lib"?"Chưa tải được công cụ tạo PDF. Bạn kiểm tra kết nối mạng rồi thử lại nhé."
+      :"Trình xem này chưa cho phép tải file. Bạn mở trang trên trình duyệt, hoặc dùng nút Sao chép kết quả nhé.");
+  }finally{ if(sheet) sheet.remove(); btn.disabled=false; }
+}
+
 function fallback(txt,t){
-  const ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.cssText="width:100%;min-height:140px;margin-top:8px";
+  const ta=document.createElement("textarea");ta.value=txt;ta.setAttribute("readonly","");ta.style.cssText="width:100%;min-height:120px;margin-top:8px";
   t.parentElement.after(ta);ta.select();t.textContent="Chọn và sao chép đoạn bên dưới";t.hidden=false;
 }
 render();
