@@ -209,6 +209,19 @@ blockquote{margin:0;padding:12px 16px;border-left:4px solid var(--violet);backgr
 .pick span{font-weight:700;min-width:0}
 .pick b{font-family:var(--font-display);font-size:22px;color:var(--violet);font-variant-numeric:tabular-nums}
 .check li span{min-width:0}
+.persona h2.many{font-size:clamp(22px,5.5vw,30px);line-height:1.15}
+.persona .defs{display:grid;gap:8px}
+.persona .defs p{margin:0;font-size:15px}
+.persona .defs b{color:var(--lime)}
+.bars{display:grid;gap:10px}
+.prow{display:grid;grid-template-columns:minmax(0,1fr) 96px 40px;gap:10px;align-items:center;font-size:14px;font-weight:600}
+.prow span:first-child{min-width:0}
+.pbar{height:10px;border-radius:99px;background:var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--violet);border-radius:99px}
+.prow b{text-align:right;font-variant-numeric:tabular-nums}
+.bars.stack .prow{grid-template-columns:minmax(0,1fr) 40px;row-gap:6px}
+.bars.stack .prow span:first-child{grid-column:1/-1}
+
 .savebox .row .btn{flex:0 1 auto}
 .pdfmsg{font-size:14px;font-weight:700;color:var(--muted);margin:0}
 /* Offscreen A4 sheet used only to render the PDF: always light, fixed print colors */
@@ -263,27 +276,33 @@ const UPZI = "https://www.upzi.vn/tai-ung-dung?utm_source=NGO&utm_campaign=AIESE
 const ONET = "https://www.onetonline.org/link/details/41-4012.00";
 const CCBY = "https://creativecommons.org/licenses/by/4.0/";
 
-/* Bước 1 – O*NET OnLine 41-4012.00, Work Styles. Câu tự đánh giá = định nghĩa O*NET, Upzi dịch sang ngôi thứ nhất.
-   persona = tên gọi do Upzi đặt. w = điểm Impact của O*NET, chỉ dùng để phân định khi bằng điểm. */
+/* Bước 1 – O*NET OnLine 41-4012.00, Work Styles: đủ 8 tố chất, giữ thứ tự O*NET liệt kê.
+   me = câu tự đánh giá (định nghĩa O*NET chuyển sang ngôi "mình"); def = bản dịch định nghĩa O*NET. */
 const TRAITS = [
-  {id:"social",t:"Định hướng xã hội",en:"Social Orientation",w:94,persona:"Người Kết nối",
+  {id:"pers",t:"Kiên trì",en:"Perseverance",
+   me:"Mình quyết tâm và bền bỉ thực hiện, hoàn thành công việc, kể cả khi gặp hoàn cảnh khó khăn hay trở ngại.",
+   def:"Xu hướng thể hiện sự quyết tâm và bền bỉ để thực hiện hoặc hoàn thành công việc khi gặp hoàn cảnh khó khăn hay trở ngại trong công việc."},
+  {id:"social",t:"Định hướng xã hội",en:"Social Orientation",
    me:"Mình hay tìm đến, thích thú và được tiếp thêm năng lượng khi tương tác với mọi người trong công việc.",
-   you:"Bạn có xu hướng tìm đến, tận hưởng và được tiếp thêm năng lượng từ việc tương tác với mọi người trong công việc."},
-  {id:"conf",t:"Tự tin",en:"Self-Confidence",w:80,persona:"Người Tiên phong",
+   def:"Xu hướng tìm đến, tận hưởng và được tiếp thêm năng lượng từ việc tương tác với mọi người trong công việc."},
+  {id:"conf",t:"Tự tin",en:"Self-Confidence",
    me:"Mình tin vào năng lực làm việc của mình và tin mình kiểm soát được kết quả công việc.",
-   you:"Bạn có xu hướng tin vào năng lực làm việc của mình và tin rằng mình kiểm soát được kết quả công việc."},
-  {id:"achieve",t:"Định hướng thành tích",en:"Achievement Orientation",w:77,persona:"Người Chinh phục",
+   def:"Xu hướng tin vào năng lực làm việc của mình và vào khả năng kiểm soát kết quả công việc."},
+  {id:"achieve",t:"Định hướng thành tích",en:"Achievement Orientation",
    me:"Mình đặt ra và theo đuổi những mục tiêu công việc mang tính thử thách với bản thân, đặt tiêu chuẩn cao và nỗ lực hết sức để đạt được.",
-   you:"Bạn có xu hướng đặt ra và theo đuổi những mục tiêu công việc mang tính thử thách với chính mình, đặt tiêu chuẩn cao và nỗ lực hết sức để đạt được."},
-  {id:"opt",t:"Lạc quan",en:"Optimism",w:70,persona:"Người Truyền lửa",
+   def:"Xu hướng đặt ra và theo đuổi những mục tiêu công việc mang tính thử thách với bản thân, đặt tiêu chuẩn công việc cao và nỗ lực hết sức để đạt được các mục tiêu, tiêu chuẩn đó."},
+  {id:"opt",t:"Lạc quan",en:"Optimism",
    me:"Mình giữ được thái độ và cảm xúc tích cực trong công việc, kể cả khi gặp hoàn cảnh khó khăn.",
-   you:"Bạn có xu hướng giữ thái độ và cảm xúc tích cực trong công việc, kể cả khi gặp hoàn cảnh khó khăn."},
-  {id:"dep",t:"Đáng tin cậy",en:"Dependability",w:69,persona:"Người Giữ chữ tín",
+   def:"Xu hướng giữ thái độ và cảm xúc tích cực trong công việc, kể cả khi gặp hoàn cảnh khó khăn."},
+  {id:"dep",t:"Đáng tin cậy",en:"Dependability",
    me:"Mình đáng tin, có trách nhiệm và nhất quán trong việc hoàn thành những nghĩa vụ công việc.",
-   you:"Bạn có xu hướng đáng tin, có trách nhiệm và nhất quán trong việc hoàn thành những gì công việc đòi hỏi."},
-  {id:"init",t:"Chủ động",en:"Initiative",w:68,persona:"Người Khởi xướng",
+   def:"Xu hướng đáng tin, có trách nhiệm và nhất quán trong việc hoàn thành các nghĩa vụ công việc."},
+  {id:"init",t:"Chủ động",en:"Initiative",
    me:"Mình chủ động và sẵn sàng nhận thêm trách nhiệm, kể cả những đầu việc nằm ngoài vai trò được giao.",
-   you:"Bạn có xu hướng chủ động và sẵn sàng nhận thêm trách nhiệm, kể cả những đầu việc nằm ngoài vai trò được giao."}
+   def:"Xu hướng chủ động và nhận thêm trách nhiệm, đầu việc có thể nằm ngoài vai trò được giao."},
+  {id:"adaptT",t:"Thích nghi",en:"Adaptability",
+   me:"Mình cởi mở và thấy thoải mái với sự thay đổi, trải nghiệm mới hay ý tưởng mới trong công việc.",
+   def:"Xu hướng cởi mở và thoải mái với sự thay đổi, trải nghiệm mới hoặc ý tưởng mới trong công việc."}
 ];
 
 /* Bước 2 – Navigos Group, Talent Guide 2026, trang 68, Biểu đồ 38 (tên kỹ năng giữ nguyên như báo cáo) */
@@ -355,7 +374,7 @@ function rIntro(){
   </section>
   <section class="panel">
     <div class="steps">
-      <div class="step"><div class="n">1</div><div><b>Mình là người thế nào?</b><small>Tự chấm 6 tố chất O*NET đánh giá quan trọng với nghề kinh doanh</small></div></div>
+      <div class="step"><div class="n">1</div><div><b>Mình là người thế nào?</b><small>Tự chấm 8 tố chất O*NET đánh giá quan trọng nhất với nghề kinh doanh</small></div></div>
       <div class="step"><div class="n">2</div><div><b>Mình đang thiếu gì?</b><small>So mình với những kỹ năng doanh nghiệp đang tìm nhiều nhất năm 2026</small></div></div>
       <div class="step"><div class="n">3</div><div><b>Mình muốn gì ở công việc đầu tiên?</b><small>Chọn điều bạn coi trọng nhất, rồi xem người đi làm nghĩ sao</small></div></div>
     </div>
@@ -373,7 +392,7 @@ function rTraits(){
   <section class="panel">
     <span class="eyebrow">Bước 1 · Mình là người thế nào?</span>
     <h2 class="qtitle">Những câu này giống bạn tới đâu?</h2>
-    <p class="lead">Đây là 6 trong 8 tố chất mà O*NET, cơ sở dữ liệu nghề nghiệp của Bộ Lao động Hoa Kỳ, đánh giá quan trọng nhất với nghề Đại diện kinh doanh (Sales Representatives). Mỗi câu là định nghĩa của O*NET, được dịch và chuyển sang ngôi "mình". Chấm từ 1 (không giống mình lắm) đến 5 (đúng là mình).</p>
+    <p class="lead">Đây là 8 tố chất mà O*NET, cơ sở dữ liệu nghề nghiệp của Bộ Lao động Hoa Kỳ, đánh giá quan trọng nhất với nghề Đại diện kinh doanh (Sales Representatives). Mỗi câu là định nghĩa của O*NET, được dịch và chuyển sang ngôi "mình". Chấm từ 1 (không giống mình lắm) đến 5 (đúng là mình).</p>
     ${TRAITS.map(t=>`<div class="skill"><h3>${esc(t.t)}</h3><p>${esc(t.me)}</p>${scale("data-t",t.id,S.traits[t.id],"Không giống mình lắm","Đúng là mình")}</div>`).join("")}
     <div class="row between"><button class="back" id="back">← Quay lại</button><button class="btn" id="fwd" ${done?"":"disabled"}>Tiếp tục →</button></div>
   </section>`;
@@ -418,12 +437,13 @@ function rPrio(){
 }
 
 function compute(){
-  const tr=TRAITS.map(t=>({...t,r:S.traits[t.id]})).sort((a,b)=>b.r-a.r||b.w-a.w);
-  const sk=SKILLS.map(s=>({...s,r:S.skills[s.id]})).sort((a,b)=>a.r-b.r);
-  const lowSkills=sk.filter(s=>s.r<=3).slice(0,2);
+  // Không chọn "người thắng": chỉ sắp xếp lại điểm tự chấm. Cùng điểm thì giữ thứ tự O*NET liệt kê.
+  const tr=TRAITS.map((t,i)=>({...t,r:S.traits[t.id],i})).sort((a,b)=>b.r-a.r||a.i-b.i);
+  const max=tr[0].r, tops=tr.filter(t=>t.r===max);
+  const skills=SKILLS.map((s,i)=>({...s,r:S.skills[s.id],i})).sort((a,b)=>a.r-b.r||a.i-b.i);
   const todo=PROFILE.filter(p=>S.prof[p.id]<2);
   const picks=S.picks.map(id=>FACTORS.find(f=>f.id===id));
-  return {top:tr[0],next:tr.slice(1,3),lowSkills,todo,picks};
+  return {tr,max,tops,skills,todo,picks};
 }
 
 function rResult(){
@@ -431,20 +451,25 @@ function rResult(){
   app.innerHTML=`
   <section class="persona">
     <div class="hero-top"><div>
-      <span class="eyebrow">Tố chất nổi bật nhất của bạn</span>
-      <h2>${esc(R.top.persona)}</h2>
+      <span class="eyebrow">${R.tops.length>1?"Những tố chất bạn tự chấm cao nhất":"Tố chất bạn tự chấm cao nhất"} · ${R.max}/5</span>
+      <h2 class="${R.tops.length>2?"many":""}">${R.tops.map(t=>esc(t.t)).join("<br>")}</h2>
     </div><div class="gau"><img src="gau.png" alt="Gấu chúc mừng bạn" width="520" height="515"></div></div>
-    <span class="en">${esc(R.top.t)} · ${esc(R.top.en)}</span>
-    <p>${esc(R.top.you)}</p>
-    <p class="roles">Hai tố chất bạn chấm cao tiếp theo: <b>${R.next.map(t=>esc(t.t)).join(" và ")}</b></p>
-    <p class="fine">Tên gọi do Upzi đặt cho dễ nhớ. Định nghĩa tố chất theo O*NET OnLine.</p>
+    <div class="defs">${R.tops.map(t=>`<p><b>${esc(t.t)} (${esc(t.en)}):</b> ${esc(t.def)}</p>`).join("")}</div>
+    <p class="fine">Định nghĩa theo O*NET OnLine, Upzi dịch. Đây là điểm bạn tự chấm, không phải kết luận về bạn.</p>
+  </section>
+
+  <section class="panel">
+    <span class="eyebrow">Bước 1 · Mình là người thế nào?</span>
+    <h2 class="qtitle">Điểm bạn tự chấm ở cả 8 tố chất</h2>
+    <div class="bars">${R.tr.map(t=>`<div class="prow"><span>${esc(t.t)}</span><span class="pbar"><i style="width:${t.r/5*100}%"></i></span><b>${t.r}/5</b></div>`).join("")}</div>
+    <p class="note">Xếp từ điểm cao xuống thấp. Cùng điểm thì giữ thứ tự O*NET liệt kê.</p>
   </section>
 
   <section class="panel">
     <span class="eyebrow">Bước 2 · Mình đang thiếu gì?</span>
-    ${R.lowSkills.length?`<h2 class="qtitle">Hai kỹ năng bạn tự chấm thấp nhất</h2>
-      <div class="gaplist">${R.lowSkills.map(s=>`<div class="gap"><b>${esc(s.t)}</b><p>Bạn tự chấm ${s.r}/5</p></div>`).join("")}</div>`
-     :`<h2 class="qtitle">Bạn tự chấm từ 4/5 trở lên ở cả 4 kỹ năng</h2>`}
+    <h2 class="qtitle">Điểm bạn tự chấm ở 4 kỹ năng doanh nghiệp đang tìm</h2>
+    <div class="bars stack">${R.skills.map(s=>`<div class="prow"><span>${esc(s.t)}</span><span class="pbar"><i style="width:${s.r/5*100}%"></i></span><b>${s.r}/5</b></div>`).join("")}</div>
+    <p class="note">Xếp từ điểm thấp lên cao.</p>
     ${R.todo.length?`<p class="subhead">Những điều Talent Guide 2026 khuyến nghị mà hồ sơ của bạn chưa có đủ</p><ul class="check">${R.todo.map(p=>`<li><span>${esc(p.t)}</span></li>`).join("")}</ul>`
      :`<p class="subhead">Hồ sơ của bạn đã có đủ 3 điều Talent Guide 2026 khuyến nghị.</p>`}
     <p class="subhead">Talent Guide 2026 nhắn gửi người đi làm</p>
@@ -484,11 +509,10 @@ function rResult(){
   <section class="sources">
     <b>Nguồn tham chiếu · Upzi tổng hợp</b>
     <ol>
-      <li>Bước 1: 6 tố chất và định nghĩa lấy từ <a href="${ONET}" target="_blank" rel="noopener">O*NET OnLine</a>, hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Trang này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép <a href="${CCBY}" target="_blank" rel="noopener">CC BY 4.0</a>. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
+      <li>Bước 1: 8 tố chất và định nghĩa lấy từ <a href="${ONET}" target="_blank" rel="noopener">O*NET OnLine</a>, hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Trang này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép <a href="${CCBY}" target="_blank" rel="noopener">CC BY 4.0</a>. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
       <li>Bước 2: Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, trang 68 (Biểu đồ 38; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới) và trang 82 (Lời khuyên dành cho Người Lao động).</li>
       <li>Bước 3: Navigos Group, Talent Guide 2026, trang 37 (Biểu đồ 14 – Yếu tố ưu tiên khi lựa chọn việc mới của Người Lao động).</li>
-      <li>Thang chấm 1–5 và cách chọn nội dung hiển thị ở trang kết quả (tố chất chấm cao nhất, 2 kỹ năng chấm thấp nhất) chỉ là cách trình bày kết quả tự đánh giá của bạn, không phải nhận định của các nguồn trên.</li>
-      <li>Tên gọi các tố chất nổi bật (Người Kết nối, Người Chinh phục…) do Upzi đặt cho dễ nhớ. Tố chất nổi bật là tố chất bạn tự chấm cao nhất; nếu bằng điểm, ưu tiên tố chất O*NET đánh giá quan trọng hơn với nghề kinh doanh.</li>
+      <li>Thang chấm 1–5 để bạn tự đánh giá. Trang kết quả chỉ sắp xếp lại điểm bạn tự chấm, không đưa ra kết luận và không phải nhận định của các nguồn trên.</li>
     </ol>
     <p>Đây là bài tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</p>
   </section>`;
@@ -497,9 +521,9 @@ function rResult(){
   document.getElementById("pdf").onclick=()=>downloadPdf(R);
   document.getElementById("copy").onclick=()=>{
     const txt=`BD Career Check-up by Upzi
-Tố chất nổi bật nhất: ${R.top.persona} (${R.top.t})
-Tiếp theo: ${R.next.map(t=>t.t).join(", ")}
-Kỹ năng nên bắt đầu trước: ${R.lowSkills.map(s=>s.t).join("; ")||"—"}
+Tố chất tự chấm cao nhất (${R.max}/5): ${R.tops.map(t=>t.t).join(", ")}
+8 tố chất: ${R.tr.map(t=>t.t+" "+t.r+"/5").join("; ")}
+4 kỹ năng: ${R.skills.map(s=>s.t+" "+s.r+"/5").join("; ")}
 Điều mình coi trọng khi chọn việc: ${R.picks.map(p=>p.t).join("; ")}`;
     const t=document.getElementById("toast");
     try{navigator.clipboard.writeText(txt).then(()=>{t.textContent="Đã sao chép";t.hidden=false},()=>fallback(txt,t));}catch(e){fallback(txt,t);}
@@ -518,15 +542,16 @@ function buildSheet(R){
   <div class="blk"><div class="ph"><img src="upzi-logo.png" alt=""><small>AIESEC · Heading for the Future<br>${today}</small></div>
     <h1 class="title">BD Career Check-up · Kết quả của bạn</h1></div>
   <div class="blk"><div class="card"><div>
-    <div class="lbl">Tố chất nổi bật nhất của bạn</div><h2>${esc(R.top.persona)}</h2>
-    <div class="en">${esc(R.top.t)} · ${esc(R.top.en)}</div>
-    <p>${esc(R.top.you)}</p>
-    <p>Hai tố chất bạn chấm cao tiếp theo: <b>${R.next.map(t=>esc(t.t)).join(" và ")}</b></p>
-    <p class="fine">Tên gọi do Upzi đặt cho dễ nhớ. Định nghĩa tố chất theo O*NET OnLine.</p>
+    <div class="lbl">${R.tops.length>1?"Những tố chất bạn tự chấm cao nhất":"Tố chất bạn tự chấm cao nhất"} · ${R.max}/5</div><h2 style="font-size:${R.tops.length>2?24:32}px">${R.tops.map(t=>esc(t.t)).join("<br>")}</h2>
+    ${R.tops.map(t=>`<p><b>${esc(t.t)} (${esc(t.en)}):</b> ${esc(t.def)}</p>`).join("")}
+    <p class="fine">Định nghĩa theo O*NET OnLine, Upzi dịch. Đây là điểm bạn tự chấm, không phải kết luận về bạn.</p>
   </div><div class="disc"><img src="gau.png" alt=""></div></div></div>
+  <div class="blk"><div class="lbl">Bước 1 · Mình là người thế nào?</div><h3>Điểm bạn tự chấm ở cả 8 tố chất</h3>
+    ${R.tr.map(t=>`<div class="pick"><span>${esc(t.t)}</span><b>${t.r}/5</b></div>`).join("")}
+    <div class="src">Xếp từ điểm cao xuống thấp. Cùng điểm thì giữ thứ tự O*NET liệt kê.</div></div>
   <div class="blk"><div class="lbl">Bước 2 · Mình đang thiếu gì?</div>
-    ${R.lowSkills.length?`<h3>Hai kỹ năng bạn tự chấm thấp nhất</h3>${R.lowSkills.map(s=>`<div class="item"><b>${esc(s.t)}</b><small>Bạn tự chấm ${s.r}/5</small></div>`).join("")}`
-      :`<h3>Bạn tự chấm từ 4/5 trở lên ở cả 4 kỹ năng</h3>`}
+    <h3>Điểm bạn tự chấm ở 4 kỹ năng doanh nghiệp đang tìm</h3>${R.skills.map(s=>`<div class="pick"><span>${esc(s.t)}</span><b>${s.r}/5</b></div>`).join("")}
+    <div class="src">Xếp từ điểm thấp lên cao.</div>
     ${R.todo.length?`<h3 style="margin-top:12px">Những điều Talent Guide 2026 khuyến nghị mà hồ sơ của bạn chưa có đủ</h3>${R.todo.map(p=>`<div class="item">${esc(p.t)}</div>`).join("")}`
       :`<p style="margin-top:10px"><b>Hồ sơ của bạn đã có đủ 3 điều Talent Guide 2026 khuyến nghị.</b></p>`}</div>
   <div class="blk"><h3>Talent Guide 2026 nhắn gửi người đi làm</h3>${QUOTES.map(q=>`<blockquote>“${esc(q)}”</blockquote>`).join("")}
@@ -540,11 +565,10 @@ function buildSheet(R){
     Công cụ định hướng nghề nghiệp trên app Upzi được xây trên dữ liệu thực tế của thị trường, giúp bạn hiểu mình rõ hơn và tìm được công việc phù hợp.
     <div class="url">Tải app Upzi: upzi.vn/tai-ung-dung</div></div></div>
   <div class="blk"><div class="lbl">Nguồn tham chiếu · Upzi tổng hợp</div><ol>
-    <li>Bước 1: 6 tố chất và định nghĩa lấy từ O*NET OnLine (onetonline.org), hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Tài liệu này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép CC BY 4.0. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
+    <li>Bước 1: 8 tố chất và định nghĩa lấy từ O*NET OnLine (onetonline.org), hồ sơ nghề 41-4012.00 Sales Representatives, mục Work Styles. Tài liệu này có sử dụng thông tin từ O*NET OnLine của Bộ Lao động Hoa Kỳ, Cục Việc làm và Đào tạo (USDOL/ETA), theo giấy phép CC BY 4.0. Upzi đã dịch và điều chỉnh cách diễn đạt; USDOL/ETA chưa xem xét hay xác nhận các thay đổi này. O*NET® là nhãn hiệu của USDOL/ETA.</li>
     <li>Bước 2: Navigos Group, Talent Guide 2026 – Báo cáo Lương &amp; Thị trường lao động năm 2026, trang 68 (Biểu đồ 38; danh sách kỹ năng tham khảo từ báo cáo Future of Jobs 2025 của Diễn đàn Kinh tế Thế giới) và trang 82.</li>
     <li>Bước 3: Navigos Group, Talent Guide 2026, trang 37 (Biểu đồ 14).</li>
-    <li>Thang chấm 1–5 và cách chọn nội dung hiển thị chỉ là cách trình bày kết quả tự đánh giá, không phải nhận định của các nguồn trên.</li>
-    <li>Tên gọi các tố chất nổi bật do Upzi đặt cho dễ nhớ. Đây là bài tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</li>
+    <li>Thang chấm 1–5 để bạn tự đánh giá. Kết quả chỉ sắp xếp lại điểm bạn tự chấm, không đưa ra kết luận và không phải nhận định của các nguồn trên. Đây là bài tự đánh giá để tham khảo, không phải bài trắc nghiệm tâm lý chuẩn hóa.</li>
   </ol></div>`;
   return d;
 }
